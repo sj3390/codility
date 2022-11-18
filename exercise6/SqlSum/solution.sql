@@ -1,4 +1,6 @@
 /*
+https://app.codility.com/programmers/trainings/6/sql_sum/
+
 Given a table elements with the following structure:
 
   create table elements (

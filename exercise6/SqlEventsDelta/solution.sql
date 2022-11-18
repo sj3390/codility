@@ -1,4 +1,6 @@
 /*
+https://app.codility.com/programmers/trainings/6/sql_events_delta/
+
 Given a table events with the following structure:
 
   create table events (
