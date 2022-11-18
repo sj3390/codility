@@ -7,8 +7,10 @@ import java.util.List;
 public class Solution {
 
     public int solution(String S) {
+        // 문자열 쪼개기
         String[] passArray = S.split(" ");
         List<String> passList = Arrays.asList(passArray);
+        // 가장 긴 문자열이 가장 먼저 위치하도록 정렬
         passList.sort(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
@@ -22,6 +24,7 @@ public class Solution {
             }
         });
 
+        // 조건에 부합하는 가장 첫번째 값을 반환 (아스키코드값으로 조건 검사)
         int result = passList.stream().filter(pass -> {
             char[] ch = pass.toCharArray();
             int numberCnt = 0;
