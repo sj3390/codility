@@ -66,25 +66,23 @@ select t.team_id, t.team_name, sum(t.num_points) as num_points
 from (
 	(select ht.team_id
 	, case when h.host_goals > h.guest_goals then 3
-	when h.host_goals = h.guest_goals then 1
-	when h.host_goals < h.guest_goals then 0
-	else 0
-	end as num_points
+	    when h.host_goals = h.guest_goals then 1
+	    when h.host_goals < h.guest_goals then 0
+	    else 0
+	    end as num_points
 	, ht.team_name	
 	from teams ht
-	left join matches h  on h.host_team = ht.team_id
-	)
+	left join matches h  on h.host_team = ht.team_id)
 	union
 	(select gt.team_id
 	, case when g.guest_goals > g.host_goals then 3
-	when g.guest_goals = g.host_goals then 1
-	when g.guest_goals < g.host_goals then 0
-	else 0
-	end as num_points
+        when g.guest_goals = g.host_goals then 1
+        when g.guest_goals < g.host_goals then 0
+        else 0
+        end as num_points
 	, gt.team_name
 	from teams gt
-	left join matches g on g.guest_team = gt.team_id
-	)
+	left join matches g on g.guest_team = gt.team_id)
 ) as t
 group by t.team_id, t.team_name
 order by num_points desc, t.team_id asc
