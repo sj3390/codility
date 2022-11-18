@@ -2,6 +2,7 @@ package LongestPassword;
 
 /*
  * 
+https://app.codility.com/programmers/trainings/1/longest_password/
 
 You would like to set a password for a bank account. However, there are three restrictions on the format of the password:
 
